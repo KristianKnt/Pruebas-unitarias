@@ -6,6 +6,17 @@ const subtract = function (a, b) {
 }
 
 function divide(a, b) {
+  if (b === 0) {
+    return Infinity;
+  }
+  // ó
+  if (a === 0) {
+    return 0;
+  }
+  /* if (b===0){
+    throw new Error("No se puede dividir entre cero");
+  } */
+
   return a / b;
 }
 
