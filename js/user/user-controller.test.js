@@ -5,14 +5,45 @@ const userController = new UserController();
 
 test('add user to userController', () => {    
     let user = new User(1234,"Santiago", "santiago@generation.org");
+    expect(userController.getUsers()).not.toContain(user);
     userController.add(user);    
     expect(userController.getUsers()).toContain(user);
   });
 
 test('remove user to userController', () => {    
-    let user = new User(1234,"Santiago", "santiago@generation.org");
-    userController.add(user);    
-    userController.remove(user);
-    expect(userController.users).not.toContain(user);
+    let userAna = new User(1, "Ana", "ana@generation.org");
+    // agregamos un nuevo usuario a la lista de usuarios
+    let userCarlos = new User(5678, "Carlos", "carlos@generation.org");
+    // la lista contiene a ana pero no a carlos
+    userController.add(userAna);
+    // verificamos que el usuario no  agregado se encuentra en la lista de usuarios
+    expect(userController.getUsers()).not.toContain(userCarlos);    
+    userController.remove(userAna);
+    expect(userController.getUsers()).not.toContain(userAna);
   });
 
+// test('verificar un usuario que no esta',()=>{
+//   let user = new User(1234,"Santiago", "santiago@generation.org");
+//   // console.log(userController.getUsers());
+//   expect(userController.getUsers()).not.toContain(user);
+// });
+
+// test('verificar un usuario que no esta en la lista de usuarios',()=>{
+//   let user = new User(1234,"Santiago", "santiago@generation.org");
+//   // console.log(userController.getUsers());
+//   expect(userController.getUsers()).toContain(user);
+// });
+
+test('verificar email de usuario',()=>{
+  let user = new User(345,"angela", "angela@generation.org");
+  console.log(userController.getUsers());
+  userController.add(user);
+  console.log(userController.getUsers());
+  let usuarioEncontrado = userController.findByEmail("angela@generation.org");
+  expect(usuarioEncontrado.email).toEqual(user.email);
+});
+
+
+test('verificar id de email.2',()=>{
+  let user = new User(345,"angela", "angela@generation.org");
+});
