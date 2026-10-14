@@ -16,14 +16,14 @@ Practicar la implementación de **pruebas unitarias** con Jest y aplicar el cicl
 
 Abre la terminal integrada y ejecuta:
 
-```bash
+```bash (hecho)
 npm install jest
 ```
 
 Verifica las pruebas existentes ejecutando:
 
-```bash
-npm test
+```bash (hecho)
+npm test 
 ```
 
 
